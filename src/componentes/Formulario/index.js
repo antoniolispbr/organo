@@ -6,16 +6,6 @@ import './Formulario.css'
 
 const Formulario = (props) => {
 
-    const times = [
-        'Programação',
-        'Front-End',
-        'Data Science',
-        'Devops',
-        'UX e Designer',
-        'Mobile',
-        'Inovação e Gestão'
-    ]
-
     const [nome, setNome] = useState('')
     const [cargo, setCargo] = useState('')
     const [imagem,  setImagem] = useState('')
@@ -30,7 +20,13 @@ const Formulario = (props) => {
             imagem,
             time
         })
-    }
+        // eslint-disable-next-line no-unused-expressions
+        setNome('')
+        setCargo('')
+        setImagem('')
+        setTime('')
+
+    }   
 
     return (
         <section className='formulario'>
@@ -59,7 +55,7 @@ const Formulario = (props) => {
                 <ListaSuspensa 
                     obrigatorio={true} 
                     label='Times' 
-                    itens={times}
+                    itens={props.times}
                     valor={time} 
                     aoAlterado={valor => setTime(valor)}
 
